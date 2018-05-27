@@ -1,0 +1,19 @@
+variable is very confusing in ansible. 
+There are two cases how we can use variable. 
+
+at the same level, there is a directory called vars.
+
+
+---
+- name: install tomcat
+  hosts: all 
+  remote_user: root 
+#  include_vars:
+#    - main.yml
+  
+  tasks:
+    - name: include default step variables
+      include_vars: main.yml
+  roles:
+    - tomcat
+#   - test-tomcat
