@@ -1,0 +1,8 @@
+---
+# vars file for docker-install# defaults file for docker-ce-ansible-role
+
+package: "docker-ce-17.03.2.ce-1.el7.centos"
+depend: "docker-ce-selinux-17.03.2.ce-1.el7.centos"
+
+
+#package: "docker-ce"

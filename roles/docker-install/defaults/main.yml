@@ -1,0 +1,20 @@
+# defaults file for docker-ce-ansible-role
+
+docker_cleanup_packages_rhel:
+- { package:  "docker" }
+- { package:  "docker-ce" }
+- { package:  "docker-client" }
+- { package:  "docker-client-latest" }
+- { package:  "docker-common" }
+- { package:  "docker-latest" }
+- { package:  "docker-latest-logrotate" }
+- { package:  "docker-logrotate" }
+- { package:  "docker-selinux" }
+- { package:  "docker-engine-selinux" }
+- { package:  "docker-engine" }
+
+docker_prerequisite_packages_rhel:
+- { package: "yum-utils" }
+- { package: "device-mapper-persistent-data" }
+- { package: "lvm2" }
+

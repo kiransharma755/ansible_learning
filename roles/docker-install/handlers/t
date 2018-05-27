@@ -1,0 +1,7 @@
+---
+
+# handlers file for docker-started, enabled
+ - service: start docker
+     name: "{{ docker_service_name  }}" 
+     state: started
+     enabled: true

@@ -1,0 +1,15 @@
+---
+ - docker_user: root
+ - docker_users:
+     - "vagrant"
+     - "root"
+ - docker_service_name: "docker"
+
+#Docker  package Name
+ - docker_package: docker-ce
+# pip dependencies
+# start on boot
+ - docker_service_enabled: yes
+
+# current state: started, stopped
+ - docker_service_state: started

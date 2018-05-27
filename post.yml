@@ -1,0 +1,16 @@
+---
+
+  - name: Add specific users to "docker" group
+    user:
+       name: "{{ item }}"
+       groups: "docker"
+       append: True
+    with_items: "{{ docker_users }}"
+    when: docker_users
+
+  - name: restart docker
+    service:
+      name: "{{ docker_service_name  }}"
+      state: restarted
+      enabled: true
+

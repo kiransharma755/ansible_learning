@@ -1,0 +1,28 @@
+---
+# tasks file for role
+
+  - name: Add specific users to docker group
+    user:
+       name: "{{ item }}"
+       groups: "docker"
+       append: True
+    with_items: "{{ docker_users }}"
+    when: docker_users
+
+  - name: restart docker
+    service:
+      name: "{{ docker_service_name  }}"
+      state: restarted
+      enabled: true
+
+# This is valuidation part
+  - name: data container
+    command:
+      docker run  hello-world
+    register: output
+      
+  - name: Print version
+    debug: msg="{{ output.stdout  }}"
+
+  - name: display varaibles
+    debug: msg="{{ docker_user }}"

@@ -1,0 +1,50 @@
+---
+# tasks file for docker-install---
+  - name : include-vars  
+    include_vars:
+      file: main.yml
+
+  - name: Remove previous docker installation
+    yum:
+       name: "{{ item.package }}"
+       state: absent
+    with_items: "{{ docker_cleanup_packages_rhel }}"
+
+
+  - name: install prerequisite for docker
+    yum:
+       name: "{{ item.package }}"
+       state: present 
+    with_items: "{{ docker_prerequisite_packages_rhel }}"
+
+
+  - name: Docker | CE | YUM | Deploy repository
+    shell: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    args:
+       creates: /etc/yum.repos.d/docker-ce.repo
+
+
+  - name: Docker | CE | YUM | install docker 
+    command: yum install -y --setopt=obsoletes=0 {{ package }} {{ depend }}
+
+
+
+  - nam: Docker | CE | YUM | install yum-versionlock 
+    command: yum install -y yum-versionlock
+
+
+  - name: versionlock | CE | YUM | run versionlock 
+    command: yum versionlock docker-ce 
+
+
+
+  - name: include deleting a directory 
+    shell: rm -rf /var/lib/docker/*  
+
+  - name: restart docker
+    service:
+      name: "{{ docker_service_name  }}"
+      state: restarted
+      enabled: true
+
+

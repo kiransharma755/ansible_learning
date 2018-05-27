@@ -1,0 +1,14 @@
+---
+
+- hosts: develop
+
+  tasks:
+
+
+  - name: Commenting a line using the regualr expressions in Ansible.
+    shell: sed -e '/swap/ s/^#*/#/' -i /etc/fstab
+
+
+
+  - name: Commenting a line using the regualr expressions in Ansible.
+    shell: rm -rf /var/lib/docker/* 

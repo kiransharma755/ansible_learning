@@ -1,0 +1,14 @@
+---
+  - name: Reset iptables to blank slate
+    command: "{{item}}"
+    with_items:
+        - "iptables -F"
+        - "iptables -t nat -F"
+        - "iptables-save"
+
+  - name: Commenting a line fstab to disable swap file system  
+    replace:
+      path: /etc/fstab
+      regexp: '(.*swap.*)'
+      replace: '#\1'
+

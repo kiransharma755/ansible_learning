@@ -1,0 +1,29 @@
+---
+
+- hosts: develop 
+  vars:
+    - action_user: devuser
+#    - package: "docker-ce-17.03.2.ce-1.el7.centos"
+#    - depend: "docker-ce-selinux-17.03.2.ce-1.el7.centos"
+  vars_files:
+       - /root/ansible/docker-ansible/variable.yml
+  gather_facts: no 
+  remote_user: "{{ docker_user }}" 
+
+  tasks:
+
+    - name: common
+      include_role : 
+           name: "common" 
+
+    - name: bootstrapping
+      include: "bs.yml"
+
+    - name: docker install  
+      include_role:
+        name: "docker-install"
+
+    - name: docker install validating
+      include_role:
+         name: "validation"
+

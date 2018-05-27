@@ -1,0 +1,13 @@
+---
+
+  - name: create ssh dir 
+    file: path=/root/.ssh state=directory mode=700
+
+  - name: copy auth keys   
+    copy: src=/root/.ssh/id_rsa.pub dest=/root/.ssh/authorized_keys
+
+  - name: permissions for authorized_keys
+    file: path=/root/.ssh/authorized_keys owner=root group=root
+
+  - name: restart ssh
+    service: name=sshd state=restarted  

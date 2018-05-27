@@ -1,0 +1,11 @@
+---
+  - name: Reset iptables to blank slate
+    command: "{{item}}"
+    with_items:
+        - "iptables -F"
+        - "iptables -t nat -F"
+        - "iptables-save"
+
+  - name: Commenting a line using the regualr expressions in Ansible.
+    shell: sed -i '/swap/ s/^#*/#/' /etc/fstab
+

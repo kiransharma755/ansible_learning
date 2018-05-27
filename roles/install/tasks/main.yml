@@ -1,0 +1,6 @@
+---
+# tasks file for install
+ - name: Docker | CE | YUM | install docker
+   command: yum install -y --setopt=obsoletes=0 {{ package }} {{ depend }}
+
+
