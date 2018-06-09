@@ -1,0 +1,1 @@
+ansible tomcat  -i inventory.ini -m copy -a "src=/home/kiran/test.yml  dest=/home/vagrant/test.yml"  --ask-pass -u root
