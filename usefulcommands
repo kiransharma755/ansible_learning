@@ -1,0 +1,6 @@
+- name: Create user
+  user:
+    name: "{{ my_variable | default('default_value') }}"
+    
+    for assigning a default value
+    
