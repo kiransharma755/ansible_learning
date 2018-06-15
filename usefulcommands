@@ -4,3 +4,10 @@
     
     for assigning a default value
     
+checking a item is in a list
+
+ - name: confirmed that the variable is in the item_list list 
+    fail:
+      msg: "{{ item }} not  in items_list"
+    when: item not in items_list
+    with_items: "{{ varlist | default(items_list) }}"
