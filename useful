@@ -1,0 +1,12 @@
+password for ssh
+
+15
+down vote
+Group Variables
+You can set variables that apply to all hosts by using the playbook layout specified in Ansible's Best Practices document and creating a group_vars/all file where you define them.
+
+---
+# file: group_vars/all
+ansible_connection: ssh 
+ansible_ssh_user: vagrant 
+ansible_ssh_pass: vagrant
