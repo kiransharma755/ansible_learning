@@ -10,3 +10,7 @@ You can set variables that apply to all hosts by using the playbook layout speci
 ansible_connection: ssh 
 ansible_ssh_user: vagrant 
 ansible_ssh_pass: vagrant
+
+
+why ansible 
+https://devops.stackexchange.com/questions/342/how-is-ansible-different-from-simply-running-a-provisioning-bash-shell-in-vagran
