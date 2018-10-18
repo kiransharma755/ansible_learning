@@ -35,3 +35,10 @@ transport = local
 - hosts: 127.0.0.1
   connection: local
   
+MAGIC VAraible mapping
+
+MAGIC_VARIABLE_MAPPING = dict(
+   connection       = ('ansible_connection',),
+   remote_addr      = ('ansible_ssh_host', 'ansible_host'),
+   remote_user      = ('ansible_ssh_user', 'ansible_user'),
+   port             = ('ansible_ssh_port', 'ansible_port'),
