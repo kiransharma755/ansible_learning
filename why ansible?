@@ -18,3 +18,20 @@ http://codefol.io/posts/deployment-versus-provisioning-versus-orchestration/
 
 what is orachestatrition and how it differce with choreography
 https://www.sapientglobalmarkets.com/blog/big-data-pipeline-orchestration-choreography
+
+
+Local connection 
+1. using Ansible command line:
+ansible-playbook --connection=local 127.0.0.1 playbook.yml
+
+2. using inventory:
+127.0.0.1 ansible_connection=local
+
+3. using Ansible configuration file:
+[defaults]
+transport = local
+
+4. using playbook header:
+- hosts: 127.0.0.1
+  connection: local
+  
