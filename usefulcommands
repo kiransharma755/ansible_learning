@@ -11,3 +11,8 @@ checking a item is in a list
       msg: "{{ item }} not  in items_list"
     when: item not in items_list
     with_items: "{{ varlist | default(items_list) }}"
+
+installing a role from galaxy 
+
+ ansible-galaxy install avinash6784.oracle-java -p ./roles
+ 
