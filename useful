@@ -11,6 +11,27 @@ ansible_connection: ssh
 ansible_ssh_user: vagrant 
 ansible_ssh_pass: vagrant
 
+---
+The INI way:
+
+[atlanta]
+host1
+host2
+
+[atlanta:vars]
+ntp_server=ntp.atlanta.example.com
+proxy=proxy.atlanta.example.com
+The YAML version:
+
+atlanta:
+  hosts:
+    host1:
+    host2:
+  vars:
+    ntp_server: ntp.atlanta.example.com
+    proxy: proxy.atlanta.example.com
+    
+    --------
 
 why ansible 
 https://devops.stackexchange.com/questions/342/how-is-ansible-different-from-simply-running-a-provisioning-bash-shell-in-vagran
